@@ -27,7 +27,25 @@ const Seattle = {
           
       return this.cookiesPerHour;
    
-   }
+   },
+    Render: function (){
+      // create unorder list 
+      // create listed item for each cookiesPerHour
+      // instert list item into ul 
+      // instert ul into body 
+   let list = document.createElement("ul")
+   let header = document.createElement("h1")
+   header.innerHTML = this.Location
+   let body = document.querySelector("body")
+   body.append(header)
+      for(let i=0; i < this.cookiesPerHour.length; i++){
+         let listitem = document.createElement("li")
+         listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
+         list.append(listitem)
+      }
+     
+     body.append(list)
+    }
 }
 
 const Tokyo = {
@@ -56,7 +74,24 @@ const Tokyo = {
           
       return this.cookiesPerHour;
    
-   }
+   },
+   Render: function (){
+      // create unorder list 
+      // create listed item for each cookiesPerHour
+      // instert list item into ul 
+      // instert ul into body 
+   let list = document.createElement("ul")
+   let header = document.createElement("h1")
+   header.innerHTML = this.Location
+   let body = document.querySelector("body")
+   body.append(header)
+      for(let i=0; i < this.cookiesPerHour.length; i++){
+         let listitem = document.createElement("li")
+         listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
+         list.append(listitem)
+      }
+     body.append(list)
+    }
 }
 
 const Dubai = {
@@ -83,7 +118,24 @@ const Dubai = {
          }
              
          return this.cookiesPerHour;
-   }
+   },
+   Render: function (){
+      // create unorder list 
+      // create listed item for each cookiesPerHour
+      // instert list item into ul 
+      // instert ul into body 
+   let list = document.createElement("ul")
+   let header = document.createElement("h1")
+   header.innerHTML = this.Location
+   let body = document.querySelector("body")
+   body.append(header)
+      for(let i=0; i < this.cookiesPerHour.length; i++){
+         let listitem = document.createElement("li")
+         listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
+         list.append(listitem)
+      }
+     body.append(list)
+    }
 }
 
 const Paris = {
@@ -110,7 +162,24 @@ GetCookies: function () {
    }
        
    return this.cookiesPerHour;
-}
+},
+Render: function (){
+   // create unorder list 
+   // create listed item for each cookiesPerHour
+   // instert list item into ul 
+   // instert ul into body 
+let list = document.createElement("ul")
+let header = document.createElement("h1")
+header.innerHTML = this.Location
+let body = document.querySelector("body")
+body.append(header)
+   for(let i=0; i < this.cookiesPerHour.length; i++){
+      let listitem = document.createElement("li")
+      listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
+      list.append(listitem)
+   }
+  body.append(list)
+ }
 }
 
 const Lima = {
@@ -136,56 +205,37 @@ GetCookies: function () {
    }
        
    return this.cookiesPerHour;
+},
+Render: function (){
+   // create unorder list 
+   // create listed item for each cookiesPerHour
+   // instert list item into ul 
+   // instert ul into body 
+let list = document.createElement("ul")
+let header = document.createElement("h1")
+header.innerHTML = this.Location
+let body = document.querySelector("body")
+body.append(header)
+   for(let i=0; i < this.cookiesPerHour.length; i++){
+      let listitem = document.createElement("li")
+      listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
+      list.append(listitem)
+   }
+  body.append(list)
+ }
 }
-}
 
-// let hoursdemo = ["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
-// let cookiedemo = [341, 202, 372, 284, 278, 334, 290, 322, 221, 404, 404, 221, 152, 278]
-// let hoursArray = document.querySelector('.output')
-// for(let i = 0; i < hoursdemo.length; i++){
-//   // hoursdemo[i].innerHTML
-//    let variable = document.createElement("li");
-//    variable.innerHTML = `${hoursdemo[i]}: ${cookiedemo[i]} cookies`;
-//    hoursArray.append(variable);
+Seattle.GetCookies()
+Seattle.Render()
 
-// }
-const hoursopen = ["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
-let cookieamount = [234, 252, 378, 353, 278, 177, 290, 265, 378, 334, 189, 297, 246, 385]
-let hoursArray = document.querySelector('.output')
-for(let i = 0; i < hoursopen.length; i++){
-   let Seattle = document.createElement("li");
-   Seattle.innerHTML = `${hoursopen[i]}: ${cookieamount[i]} cookies`;
-   hoursArray.append(Seattle);
-}; 
+Tokyo.GetCookies()
+Tokyo.Render()
 
-let cookieamountT = [12, 17, 24, 7, 24, 17, 6, 20, 24, 16, 30, 28, 16, 34]
-let hoursArray2 = document.querySelector('.output2')
-for(let i = 0; i < hoursopen.length; i++){
-   let Tokyo = document.createElement("li");
-   Tokyo.innerHTML = `${hoursopen[i]}: ${cookieamountT[i]} cookies`; 
-   hoursArray2.append(Tokyo);
-};
+Dubai.GetCookies()
+Dubai.Render()
 
-let cookieamountD = [97, 56, 49, 104, 45, 78, 137, 45, 56, 63, 100, 141, 86, 141]
-let hoursArray3 = document.querySelector('.output3')
-for(let i =0; i < hoursopen.length; i++){
-   let Dubai = document.createElement("li");
-   Dubai.innerHTML = `${hoursopen[i]}: ${cookieamountD[i]} cookies`;
-   hoursArray3.append(Dubai);
-};
+Paris.GetCookies()
+Paris.Render()
 
-let cookieamountP = [53, 81, 49, 69, 79, 72, 51, 76, 63, 56, 63, 86, 86, 56]
-let hoursArray4 = document.querySelector('.output4')
-for(let i = 0; i < hoursopen.length; i++){
-   let Paris = document.createElement("li");
-   Paris.innerHTML = `${hoursopen[i]}: ${cookieamountP[i]} cookies`;
-   hoursArray4.append(Paris);
-};
-
-let cookieamountL = [42, 74, 46, 65, 65, 51, 74, 14, 60, 65, 42, 19, 51, 46]
-let hoursArray5 = document.querySelector('.output5')
-for(let i = 0; i < hoursopen.length; i++){
-   let Lima = document.createElement("li");
-   Lima.innerHTML = `${hoursopen[i]}: ${cookieamountL[i]} cookies`;
-   hoursArray5.append(Lima);
-}
+Lima.GetCookies()
+Lima.Render()
