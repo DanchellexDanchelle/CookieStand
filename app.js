@@ -1,232 +1,94 @@
+ 
  function GetRandom(max, min) {
     return Math.ceil( Math.random() * (max - min) + min);
  }
 
-const Seattle = {
-   min: 23,
-   max: 65,
-   avg: 6.3,
-   Location: "Seattle",
-   hoursopen: ["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"],
-   CustomerPerHour: function() {
-      console.log(this.max);
-      console.log(this.min);
-      return GetRandom(this.max,this.min);
-   },
-   cookiesPerHour: [],
-
-   GetCookies: function () {
-      for(let i = 0; i < this.hoursopen.length; i++) {
-
-         console.log("Seattle Avg Cookie Sales per hour is ",this.avg);
-
-         console.log("Seattle amount of customers per hour is ",this.CustomerPerHour());
-
-         this.cookiesPerHour.push(Math.ceil(this.avg * this.CustomerPerHour()));
-      }
-          
-      return this.cookiesPerHour;
-   
-   },
-    Render: function (){
-      // create unorder list 
-      // create listed item for each cookiesPerHour
-      // instert list item into ul 
-      // instert ul into body 
-   let list = document.createElement("ul")
-   let header = document.createElement("h1")
-   header.innerHTML = this.Location
-   let body = document.querySelector("body")
-   body.append(header)
-      for(let i=0; i < this.cookiesPerHour.length; i++){
-         let listitem = document.createElement("li")
-         listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
-         list.append(listitem)
-      }
-     
-     body.append(list)
-    }
+ function CookieShop(min, max, avg, Location){
+this.min = min
+this.max = max
+this.avg = avg
+this.Location = Location
+this.hoursopen= ["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
+this.cookiesPerHour=[]
+// I dont have a total for any of my locations for the day 
+// this is my attempt at that 
+this.Total= function (){
+   for(let t=0; t < cookiesPerHour.length; t++){
+      Total += parseInt(cookiesPerHour[t]);
+   }
 }
-
-const Tokyo = {
-   Min: 3,
-   Max: 24,
-   avg: 1.4,
-   Location: "Tokyo",
-   hoursopen: ["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"],
-   CustomerPerHour: function () {
-      console.log(Tokyo.Max);
-      console.log(Tokyo.Min);
-
-      return GetRandom(this.Max,this.Min);
-   },
-   cookiesPerHour: [],
-
-   GetCookies: function () {
-      for(let i = 0; i < this.hoursopen.length; i++) {
-
-         console.log("Tokyo Avg Cookie Sales per hour is ",this.avg);
-
-         console.log("Tokyo amount of customers per hour is ",this.CustomerPerHour());
-
-         this.cookiesPerHour.push(Math.ceil(this.avg * this.CustomerPerHour()));
-      }
-          
-      return this.cookiesPerHour;
-   
-   },
-   Render: function (){
-      // create unorder list 
-      // create listed item for each cookiesPerHour
-      // instert list item into ul 
-      // instert ul into body 
-   let list = document.createElement("ul")
-   let header = document.createElement("h1")
-   header.innerHTML = this.Location
-   let body = document.querySelector("body")
-   body.append(header)
-      for(let i=0; i < this.cookiesPerHour.length; i++){
-         let listitem = document.createElement("li")
-         listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
-         list.append(listitem)
-      }
-     body.append(list)
-    }
+this.CustomerPerHour= function() {
+   console.log(this.max);
+   console.log(this.min);
+   return GetRandom(this.max,this.min);
 }
-
-const Dubai = {
-   Min: 11,
-   Max: 38,
-   avg: 3.7,
-   Location: "Dubai",
-   hoursopen: ["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"],
-   CustomerPerHour: function() {
-      console.log(this.Max);
-      console.log(this.Min);
-      return GetRandom(this.Max, this.Min);
-   }, 
-   cookiesPerHour: [],
-      
-      GetCookies: function() {
-         for(let i = 0; i < this.hoursopen.length; i++) {
-   
-            console.log("Dubai Avg Cookie Sales per hour is ",this.avg);
-   
-            console.log("Dubai amount of customers per hour is ",this.CustomerPerHour());
-   
-            this.cookiesPerHour.push(Math.ceil(this.avg * this.CustomerPerHour()));
-         }
-             
-         return this.cookiesPerHour;
-   },
-   Render: function (){
-      // create unorder list 
-      // create listed item for each cookiesPerHour
-      // instert list item into ul 
-      // instert ul into body 
-   let list = document.createElement("ul")
-   let header = document.createElement("h1")
-   header.innerHTML = this.Location
-   let body = document.querySelector("body")
-   body.append(header)
-      for(let i=0; i < this.cookiesPerHour.length; i++){
-         let listitem = document.createElement("li")
-         listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
-         list.append(listitem)
-      }
-     body.append(list)
-    }
-}
-
-const Paris = {
-   Min: 20,
-   Max: 38,
-   avg: 2.3,
-Location: "Paris",
-hoursopen:["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"],
-CustomerPerHour: function(){
-   console.log(this.Max);
-   console.log(this.Min);
-   return GetRandom(this.Max, this.Min);
-
-},
-cookiesPerHour: [],
-GetCookies: function () {
+this.GetCookies= function () {
    for(let i = 0; i < this.hoursopen.length; i++) {
 
-      console.log("Paris Avg Cookie Sales per hour is ",this.avg);
+      console.log("Seattle Avg Cookie Sales per hour is ",this.avg);
 
-      console.log("Paris amount of customers per hour is ",this.CustomerPerHour());
+      console.log("Seattle amount of customers per hour is ",this.CustomerPerHour());
 
       this.cookiesPerHour.push(Math.ceil(this.avg * this.CustomerPerHour()));
    }
        
    return this.cookiesPerHour;
-},
-Render: function (){
-   // create unorder list 
-   // create listed item for each cookiesPerHour
-   // instert list item into ul 
-   // instert ul into body 
-let list = document.createElement("ul")
-let header = document.createElement("h1")
-header.innerHTML = this.Location
-let body = document.querySelector("body")
-body.append(header)
-   for(let i=0; i < this.cookiesPerHour.length; i++){
-      let listitem = document.createElement("li")
-      listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
-      list.append(listitem)
-   }
-  body.append(list)
- }
+  
+
 }
-
-const Lima = {
-   Min: 2,
-   Max: 16,
-   avg: 4.6,
-Location: "Lima",
-hoursopen:["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"],
-CustomerPerHour: function(){
-   console.log(this.Max);
-   console.log(this.Min)
-   return GetRandom(this.Max, this.Min);
-},
-cookiesPerHour: [],
-GetCookies: function () {
-   for(let i = 0; i < this.hoursopen.length; i++) {
-
-      console.log("Lima Avg Cookie Sales per hour is ",this.avg);
-
-      console.log("Lima amount of customers per hour is ",this.CustomerPerHour());
-
-      this.cookiesPerHour.push(Math.ceil(this.avg * this.CustomerPerHour()));
-   }
-       
-   return this.cookiesPerHour;
-},
-Render: function (){
-   // create unorder list 
-   // create listed item for each cookiesPerHour
-   // instert list item into ul 
-   // instert ul into body 
-let list = document.createElement("ul")
-let header = document.createElement("h1")
-header.innerHTML = this.Location
-let body = document.querySelector("body")
-body.append(header)
-   for(let i=0; i < this.cookiesPerHour.length; i++){
-      let listitem = document.createElement("li")
-      listitem.innerHTML= this.hoursopen[i]+": "+this.cookiesPerHour[i]
-      list.append(listitem)
-   }
-  body.append(list)
- }
+this.Render= function (){
+   // Create a TD for daily Total 
+   // Add the cookiesold for the day
+   // set to variable for daily total
+   // set hmtl to that total variable  
+   // insert td into row 
+let CookieTable = document.getElementById("Cookies")
+let row = document.createElement("tr")
+let ShopName = this.Location
+let ShopNameTd =document.createElement("td")
+row.append(ShopNameTd)
+ShopNameTd.innerHTML= ShopName
+for(let i=0; i<this.cookiesPerHour.length; i++){
+   let Cookiedata= document.createElement("td")
+   Cookiedata.innerHTML=this.cookiesPerHour[i]
+   row.append(Cookiedata)
 }
+let DailyTotal = document.createElement("td")
+DailyTotal.innerHTML= 
+row.append(DailyTotal)
+
+
+table.append(row)
+}}
+
+// create Table 
+// hoursopens is the 1st row
+//each object has a row after and render its data
+let table = document.createElement("table")
+table.id = "Cookies"
+let body = document.querySelector("body")
+body.append(table)
+let TRow = document.createElement("tr")
+table.append(TRow)
+let hoursopen= [" ","6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm","Totals"]
+      for(let k=0; k < hoursopen.length; k++){
+         let THeader = document.createElement("th")
+         THeader.innerHTML= hoursopen[k]
+         TRow.append(THeader)
+      }
+   
+
+
+let Seattle = new CookieShop(23,65,6.5,"Seattle")
+let Tokyo = new CookieShop(3, 24, 1.4 ,"Tokyo")
+let Dubai = new CookieShop(11,38,3.7,"Dubai")
+let Paris = new CookieShop(20, 38,2.3,"Paris")
+let Lima = new CookieShop(2,16,4.6,"Lima")
+
 
 Seattle.GetCookies()
 Seattle.Render()
+
 
 Tokyo.GetCookies()
 Tokyo.Render()
@@ -234,8 +96,10 @@ Tokyo.Render()
 Dubai.GetCookies()
 Dubai.Render()
 
+
 Paris.GetCookies()
 Paris.Render()
+
 
 Lima.GetCookies()
 Lima.Render()
