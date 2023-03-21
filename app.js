@@ -1,3 +1,4 @@
+ 
  function GetRandom(max, min) {
     return Math.ceil( Math.random() * (max - min) + min);
  }
@@ -9,6 +10,13 @@ this.avg = avg
 this.Location = Location
 this.hoursopen= ["6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
 this.cookiesPerHour=[]
+// I dont have a total for any of my locations for the day 
+// this is my attempt at that 
+this.Total= function (){
+   for(let t=0; t < cookiesPerHour.length; t++){
+      Total += parseInt(cookiesPerHour[t]);
+   }
+}
 this.CustomerPerHour= function() {
    console.log(this.max);
    console.log(this.min);
@@ -25,6 +33,7 @@ this.GetCookies= function () {
    }
        
    return this.cookiesPerHour;
+  
 
 }
 this.Render= function (){
@@ -44,6 +53,11 @@ for(let i=0; i<this.cookiesPerHour.length; i++){
    Cookiedata.innerHTML=this.cookiesPerHour[i]
    row.append(Cookiedata)
 }
+let DailyTotal = document.createElement("td")
+DailyTotal.innerHTML= 
+row.append(DailyTotal)
+
+
 table.append(row)
 }}
 
@@ -56,7 +70,7 @@ let body = document.querySelector("body")
 body.append(table)
 let TRow = document.createElement("tr")
 table.append(TRow)
-let hoursopen= [" ","6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
+let hoursopen= [" ","6am", "7am" , "8am", "9am", "10am", "11am", "12pm","1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm","Totals"]
       for(let k=0; k < hoursopen.length; k++){
          let THeader = document.createElement("th")
          THeader.innerHTML= hoursopen[k]
@@ -75,14 +89,17 @@ let Lima = new CookieShop(2,16,4.6,"Lima")
 Seattle.GetCookies()
 Seattle.Render()
 
+
 Tokyo.GetCookies()
 Tokyo.Render()
 
 Dubai.GetCookies()
 Dubai.Render()
 
+
 Paris.GetCookies()
 Paris.Render()
+
 
 Lima.GetCookies()
 Lima.Render()
